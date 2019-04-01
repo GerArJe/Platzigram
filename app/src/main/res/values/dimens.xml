@@ -32,4 +32,9 @@
     <dimen name="margintop_usernametoolbarprofile">-100dp</dimen>
     <dimen name="limitY_usernametoolbarprofile">-250dp</dimen>
     <dimen name="margintoptargety_usernametoolbarprofile">-5dp</dimen>
+    <dimen name="minusPadding_searchText">2dp</dimen>
+    <dimen name="padding_searchText">10dp</dimen>
+    <dimen name="elevation_searchText">100dp</dimen>
+    <dimen name="margintop_gridrecyclerview">10dp</dimen>
+    <dimen name="margin_gridrecyclerview">3dp</dimen>
 </resources>

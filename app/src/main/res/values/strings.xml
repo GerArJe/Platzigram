@@ -17,6 +17,8 @@
     <string name="timecard_card">4 días</string>
     <string name="likenumbercard_card">10 Me Gusta</string>
 
+    <string name="login_error">Ocurrió este error:</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tab_search">Buscar</string>

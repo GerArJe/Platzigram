@@ -21,4 +21,7 @@
     <string name="secondword_detail">Me Gusta</string>
 
     <string name="login_error">Something happen:</string>
+    <string name="hint_title">Título</string>
+    <string name="hint_description">Descripción</string>
+    <string name="text_button_createpost">Crear Post</string>
 </resources>

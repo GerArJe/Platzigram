@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.platzigram.R;
-import com.example.platzigram.view.fragment.HomeFragment;
+import com.example.platzigram.post.view.HomeFragment;
 import com.example.platzigram.view.fragment.ProfileFragment;
 import com.example.platzigram.view.fragment.SearchFragment;
 

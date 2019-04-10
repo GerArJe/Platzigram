@@ -1,8 +1,11 @@
 package com.example.platzigram.login.presenter;
 
+import android.app.Activity;
+
 import com.example.platzigram.login.interactor.LoginInteractor;
 import com.example.platzigram.login.interactor.LoginInteractorImpl;
 import com.example.platzigram.login.view.LoginView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginPresenterImpl implements LoginPresenter{
 
@@ -15,12 +18,12 @@ public class LoginPresenterImpl implements LoginPresenter{
     }
 
     @Override
-    public void signIn(String username, String password) {
+    public void signIn(String username, String password, Activity activity, FirebaseAuth firebaseAuth) {
 
         loginView.disableInputs();
         loginView.showProgressBar();
 
-        interactor.singIn(username, password);
+        interactor.singIn(username, password, activity, firebaseAuth);
     }
 
     @Override

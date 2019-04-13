@@ -22,6 +22,8 @@
 
     <string name="login_error">Something happen:</string>
     <string name="hint_title">Título</string>
-    <string name="hint_description">Descripción</string>
-    <string name="text_button_createpost">Crear Post</string>
+    <string name="hint_description">Description</string>
+    <string name="text_button_createpost">Create Post</string>
+    <string name="menu_signout">Sign Out</string>
+    <string name="menu_about">About</string>
 </resources>

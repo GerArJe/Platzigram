@@ -1,6 +1,8 @@
 package com.example.platzigram.login.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -119,6 +121,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    FirebaseUser user = task.getResult().getUser();
+                    SharedPreferences preferences = getSharedPreferences("USER", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("email", user.getEmail());
+                    editor.commit();
                     login();
                     Toast.makeText(LoginActivity.this, "Login Facebook Exitoso", Toast.LENGTH_SHORT).show();
                 }else {

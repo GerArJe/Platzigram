@@ -34,5 +34,7 @@
 
     <string name="facebook_app_id" translatable="false">594889624308471</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb594889624308471</string>
+    <string name="menu_signout">Cerrar Sesión</string>
+    <string name="menu_about">Acerca de</string>
 
 </resources>

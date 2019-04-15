@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.platzigram.R;
 import com.example.platzigram.login.presenter.LoginPresenter;
 import com.example.platzigram.login.presenter.LoginPresenterImpl;
@@ -52,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Crashlytics.log("Iniciando " + TAG);
         setContentView(R.layout.activity_login);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -109,6 +111,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
             public void onError(FacebookException error) {
                 Log.w(TAG, "Facebook Login Error: " + error.toString());
                 error.printStackTrace();
+                Crashlytics.logException(error);
             }
         });
     }
@@ -127,8 +130,10 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
                     editor.putString("email", user.getEmail());
                     editor.commit();
                     login();
+                    Crashlytics.log(Log.WARN, TAG, "Login Facebook Exitoso");
                     Toast.makeText(LoginActivity.this, "Login Facebook Exitoso", Toast.LENGTH_SHORT).show();
                 }else {
+                    Crashlytics.log(Log.WARN, TAG, "Login Facebook NO Exitoso");
                     Toast.makeText(LoginActivity.this, "Login Facebook NO Exitoso", Toast.LENGTH_SHORT).show();
                 }
             }

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.platzigram.R;
 import com.example.platzigram.adapter.PictureAdapterRecyclerView;
 import com.example.platzigram.model.Picture;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 public class ProfileFragment extends Fragment {
 
 
+    private String TAG = "ProfileFragment";
+
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -31,6 +34,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Crashlytics.log("Iniciando " + TAG);
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         showToolbar("", false, view);

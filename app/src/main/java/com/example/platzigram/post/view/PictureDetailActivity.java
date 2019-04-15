@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.platzigram.PlatzigramApplication;
 import com.example.platzigram.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,10 +27,12 @@ public class PictureDetailActivity extends AppCompatActivity {
     private ImageView image_header;
     private PlatzigramApplication app;
     StorageReference storageReference;
+    private String TAG = "PictureDetailActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Crashlytics.log("Iniciando " + TAG);
         setContentView(R.layout.activity_picture_detail);
 
         app = (PlatzigramApplication) getApplicationContext();
@@ -56,6 +59,7 @@ public class PictureDetailActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(PictureDetailActivity.this, "Ocurrió un error al traer la foto", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
+                Crashlytics.logException(e);
             }
         });
     }

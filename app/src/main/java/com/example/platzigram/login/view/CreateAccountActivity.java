@@ -13,6 +13,7 @@ import android.widget.Toast;
 //import android.widget.Toolbar;
 
 
+import com.crashlytics.android.Crashlytics;
 import com.example.platzigram.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -32,6 +33,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Crashlytics.log("Iniciando " + TAG);
         setContentView(R.layout.activity_create_acount);
         showToolbar(getResources().getString(R.string.toolbar_tittle_createaccount), true);
 
@@ -45,9 +47,9 @@ public class CreateAccountActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if (firebaseUser != null){
-                    Log.w(TAG, "Usuario logueado " + firebaseUser.getEmail());
+                    Crashlytics.log(Log.WARN, TAG, "Usuario logueado" + firebaseUser.getEmail());
                 }else {
-                    Log.w(TAG, "Usuario no logueado ");
+                    Crashlytics.log(Log.WARN, TAG, "Usuario NO logueado");
                 }
             }
         };

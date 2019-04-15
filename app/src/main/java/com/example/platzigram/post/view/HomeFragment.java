@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.platzigram.R;
 import com.example.platzigram.adapter.PictureAdapterRecyclerView;
 import com.example.platzigram.model.Picture;
@@ -37,6 +38,7 @@ public class HomeFragment extends Fragment {
     private static final int REQUEST_CAMERA = 1;
     private FloatingActionButton fabCamera;
     private String photoPathTemp = "";
+    private String TAG = "HomeFragment";
 
     public HomeFragment() {
         // Required empty public constructor
@@ -46,6 +48,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Crashlytics.log("Iniciando " + TAG);
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         showToolbar(getResources().getString(R.string.tab_home), false, view);
@@ -81,6 +84,7 @@ public class HomeFragment extends Fragment {
                 photoFile = createImageFile();
             }catch (Exception e){
                 e.printStackTrace();
+                Crashlytics.logException(e);
             }
 
             if (photoFile != null){

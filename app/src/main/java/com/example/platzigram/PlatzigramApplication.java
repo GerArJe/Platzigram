@@ -4,6 +4,7 @@ import android.app.Application;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.platzigram.login.view.LoginActivity;
 import com.facebook.FacebookSdk;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,7 +29,7 @@ public class PlatzigramApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        FirebaseCrash.log("Inicializando variables PlatzigramApplication");
+        Crashlytics.log("Inicializando variables PlatzigramApplication");
 
         FacebookSdk.sdkInitialize(getApplicationContext());
 
@@ -38,11 +39,9 @@ public class PlatzigramApplication extends Application {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                 if (firebaseUser != null){
-                    Log.w(TAG, "Usuario logeado " + firebaseUser.getEmail());
-//                    FirebaseCrash.logcat(Log.WARN, TAG, "Usuario logeado " + firebaseUser.getEmail());
+                    Crashlytics.log(Log.WARN, TAG, "Usuario logeado " + firebaseUser.getEmail());
                 }else {
-                    Log.w(TAG, "Usuario No logeado ");
-//                    FirebaseCrash.logcat(Log.WARN, TAG, "Usuario No logeado ");
+                    Crashlytics.log(Log.WARN, TAG, "Usuario No logeado ");
                 }
             }
         };

@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.platzigram.R;
 import com.example.platzigram.login.view.CreateAccountActivity;
 import com.example.platzigram.login.view.LoginActivity;
@@ -35,6 +36,7 @@ public class ContainerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Crashlytics.log("Iniciando " + TAG);
         setContentView(R.layout.activity_container);
 
         firebaseInitialize();

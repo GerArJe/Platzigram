@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.crashlytics.android.Crashlytics;
 import com.example.platzigram.PlatzigramApplication;
 import com.example.platzigram.R;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -35,6 +36,7 @@ public class NewPostActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Crashlytics.log("Iniciando " + TAG);
         setContentView(R.layout.activity_new_post);
         app = (PlatzigramApplication) getApplicationContext();
         storageReference = app.getStorageReference();
@@ -74,6 +76,7 @@ public class NewPostActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 Log.w(TAG, "Error al subir la foto" + e.toString());
                 e.printStackTrace();
+                Crashlytics.logException(e);
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override

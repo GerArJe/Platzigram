@@ -10,8 +10,7 @@
             </tr>
             <tr>
                 <td><img src="https://user-images.githubusercontent.com/46495565/56307629-e9b48580-610a-11e9-9908-7999aff57e5f.png" height="500px" /></td>
-                <td><img src="https://user-images.githubusercontent.com/46495565/56307640-f0db9380-610a-11e9-8364-b7730813aa85.png" height="500px"/></td>
-                
+                <td><img src="https://user-images.githubusercontent.com/46495565/56307640-f0db9380-610a-11e9-8364-b7730813aa85.png" height="500px"/></td>  
             </tr>
         </tbody>
     </table>

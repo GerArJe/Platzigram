@@ -1,4 +1,7 @@
 # Platzigram
+This app use:
+* Firebase Authentication.
+* Firebase Storage.
 
 <center>
     <table>
